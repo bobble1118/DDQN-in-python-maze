@@ -33,13 +33,14 @@ if __name__ == "__main__":
     print(f"Using {device} device")
     
     # 建立 Maze 環境
-    Maze = env.MazeEnv()               # 狀態空間：[x, y]
-    actions = Maze.actions             # 動作數量：4
-    agent = Agent.DDQNAgent(state=[0.5, 0.5], actions=actions, learning_rate=0.001, gamma=0.99, 
+    Maze = env.MazeEnv()
+    start_position = Maze.start_position                  # 狀態空間：[x, y]
+    actions = Maze.actions                                # 動作數量：4
+    agent = Agent.DDQNAgent(state=start_position, actions=actions, learning_rate=0.01, gamma=0.9, 
                       buffer_capacity=100, batch_size=10, device=device)
     
     num_episodes = 400  # 總訓練回合數
-    max_steps = 120     # 每回合最多執行步數        
+    max_steps = 100     # 每回合最多執行步數        
     rewards_history = []
     loss_history = []
     
@@ -93,5 +94,3 @@ if __name__ == "__main__":
     # 最後再顯示一次環境
     Maze.render([agent.state])
 
-        
-    

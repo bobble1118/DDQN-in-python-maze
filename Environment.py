@@ -65,7 +65,7 @@ class MazeEnv:
     def compute_reward(self, agent_positions, meet_wall=False):
         # 計算獎勵和是否結束
         if (int(agent_positions[0]), int(agent_positions[1])) == (7, 7):
-            return 500, True  # 到達目標
+            return 100, True  # 到達目標
         if meet_wall:
             return -10, False  # 碰壁失敗
         else:   
