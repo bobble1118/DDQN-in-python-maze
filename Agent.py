@@ -36,7 +36,7 @@ class DDQNAgent:
         # Epsilon 用於 epsilon-greedy 探索策略
         self.epsilon = 1.0
         self.epsilon_min = 0.001
-        self.epsilon_decay = 0.999        
+        self.epsilon_decay = 0.9999        
         self.train_step = 0
         self.update_target_every = 5  # 每5次訓練後更新 target 網路
 
